@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2012031301;
+$plugin->version   = 2013050601;
 $plugin->requires  = 2010112400;
 $plugin->component = 'filter_screencast';
 $plugin->maturity = MATURITY_BETA;

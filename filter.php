@@ -64,7 +64,7 @@ function filter_screencast_callback($link) {
 	
 	$screencastContents = file_get_contents( $url );
 		
-    preg_match( '/(<iframe(.*?)>(.*?)<\/iframe>)/ms', $screencastContents, $output );
+    preg_match( '/(<object(.*?)>(.*?)<\/object>)/ms', $screencastContents, $output );
 
     return $output[1];
 }
