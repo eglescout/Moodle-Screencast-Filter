@@ -62,9 +62,14 @@ function filter_screencast_callback($link) {
 
     $url = $link[1];
 	
-	$screencastContents = file_get_contents( $url );
+		$screencastContents = file_get_contents( $url );
 		
     preg_match( '/(<object(.*?)>(.*?)<\/object>)/ms', $screencastContents, $output );
-
+		// find out if this is a Flash object; then add opacity to it to help some browsers display it
+		if(strpos($output[1],'x-shockwave-flash')){
+			$addflashfix='<param name="wmode" value="opaque" /></object>';
+			$output[1] = str_replace('</object>',$addflashfix,$output[1]);
+		}
     return $output[1];
+
 }
